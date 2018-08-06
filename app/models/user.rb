@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
     # self.where(:email => auth["info"]["email"]).first_or_create do |user|
     #     user.password = SecureRandom.hex
     # end
-    binding.pry
     user = User.find_by(:uid => auth["uid"])
     if !user
       user = User.create(:uid => auth["uid"], :name => auth["info"]["name"], :email => auth["info"]["email"])
