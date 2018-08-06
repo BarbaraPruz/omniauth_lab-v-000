@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     binding.pry
     user = User.find_by(:uid => auth["uid"])
     if !user
-      user = User.create(auth)
+      user = User.create(:uid => auth["uid"], :name => auth["info"]["name"], :email => auth["info"]["email"])
     end
     user
   end
